@@ -1,0 +1,154 @@
+{% extends "base_standings.html" %}
+
+{% block content %}
+
+
+
+<style type="text/css">
+
+h3{
+	font-size: 120%;
+	clear: left;
+}
+
+.clear{
+color: blue;
+text-align: center;
+}
+
+.green{
+color: olive;
+}
+
+table.playersWords{
+	font-weight: 30%;
+	border-collapse: collapse;
+	border-color: grey;
+
+}
+
+div.wrapper{
+	margin: 2%;
+	float: left;
+	width: 300px;
+	height: 300px; 
+}
+
+table#score_last_tour, table#score_all_tours, table#statistics_words{
+	font-weight: 30%;
+	border-collapse: collapse;
+	margin: 1%;
+	border-color: grey;
+	float: left;
+	padding: 1%;
+}
+
+#score_last_tour td, #score_all_tours td, #statistics_words td{
+	padding: 2px;
+}
+</style>
+
+{% if isNextTour %}
+
+{%include "timeCount.js"%}
+
+{% endif %}
+
+<BR>
+<H3 ALIGN="center" > {{messageForTitle}} </H3>
+<TABLE BORDER id = "score_last_tour">
+<TR>
+<TH><p class = "clear"> Имя игрока </p> </TH> <TH> <p class = "clear"> Баллы за последний тур </p></TH> 
+</TR>
+
+{% for player in playersScore %}
+<TR>
+<TD> 
+    {% if player.user == request.user %}
+	    <p class = "green">
+	{% endif %}
+{{player.user.get_full_name}} 
+	{% if player.user == request.user %}
+	   </p>
+	{% endif %}
+</TD> <TD>{{player.score}}</TD> 
+</TR>
+{% endfor %}
+</TABLE>
+
+<TABLE BORDER id = "score_all_tours">
+<TR>
+<TH><p class = "clear"> Имя игрока </p> </TH> <TH> <p class = "clear"> Баллы за все туры </p></TH> 
+</TR>
+
+{% for player in playersScoreTotal %}
+<TR>
+<TD>
+    {% if player.user == request.user %}
+	    <p class = "green">
+	{% endif %}
+
+ {{player.user.get_full_name}} 
+    {% if player.user == request.user %}
+	    </p>
+	{% endif %}
+
+</TD> <TD>{{player.scoreTotal}}</TD> 
+</TR>
+{% endfor %}
+</TABLE>
+
+<TABLE BORDER id = "statistics_words">
+<TR>
+<TH><p class = "clear"> Слово </p> </TH> <TH> <p class = "clear"> Сколько раз встретилось </p></TH>
+</TR>
+{% for word in statisticsWords %}
+<TR>
+<TD> 
+{% if word.word in wordsRequestUser %}
+    <strong>
+{% endif %}
+
+{%if not word.legal%}
+<s>
+{% endif %}
+	{{word.word}}
+{%if not word.legal%}
+</s>
+{% endif %}
+{% if word.word in wordsRequestUser %}
+    </strong>
+{% endif %}
+
+</TD> <TD>{{word.count}}</TD>
+</TR>
+{% endfor %}
+</TABLE>
+
+
+<h3 class = "clear"></h3> 
+{% for player in playersWords %}
+<div class = "wrapper">
+	<TABLE BORDER class = "playersWords">
+		<caption> {{player.0.get_full_name}}&nbsp; </caption>
+	<TR>
+	<TH><p class = "clear"> Слово, введенное игроком </p> </TH> <TH> <p class = "clear"> Очки за него</p></TH>
+	</TR>
+	{% for word in player.1%}
+	<TR>
+	<TD> 
+	{{word.word}} 
+	{%if not word.legal%}
+	[бан]
+	{%endif%} 
+	</TD>
+	<TD> {{word.score}} </TD>
+	</TR>
+	{% endfor %}
+
+	</TABLE>
+</div>
+{% endfor %}
+
+{% endblock %}
+

@@ -1,0 +1,11 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+Результаты игры {{dataGame.start.ctime}} пересчитаны.
+
+<form action = "/management">
+<input type="submit" value="Назад">
+</form>
+
+{% endblock %}

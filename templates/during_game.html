@@ -1,0 +1,30 @@
+{% extends "base_home.html" %}
+
+{% block more_href %}
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Жмите сюда: <A HREF="/main">Играть!</A>
+Следующая игра пройдёт во вторник 19 марта в 23:00. -->
+<br/>
+Если скоро будет игра, жмите сюда: <A HREF="/main">Играть!</A>
+Если вы здесь первый раз, можете пока <a href="http://ban.thehat.ru/register">зарегистрироваться</a>
+и изучить <a href="http://ban.thehat.ru/rules/">правила игры</a>.
+
+{% if standings %}
+Игра закончилась.<BR>
+Результаты:<BR>
+<TABLE BORDER>
+<TR>
+<TH>Имя игрока</TH><TH>Очки за игру</TH>
+</TR>
+{% for player in standings %}
+<TR> <TD> {{player.0}}  </TD> <TD> {{player.1}} </TD></TR>
+{% endfor %}
+</TABLE>
+
+{% endif %}
+
+{% endblock %}

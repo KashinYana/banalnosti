@@ -1,0 +1,28 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+<p>Здесь вы можете изменить забаненные слова:</p>
+
+{% for tour in wordsTours %}
+Тур {{tour.0}}. Тема {{tour.1.title}}.<br>
+
+<form name = "ban" action="." method="post">
+
+{% for word in tour.2%}
+
+       <input type="checkbox" name="word" value="{{word.word}}" 
+         {% if not word.legal %}
+         checked
+         {% endif %}
+    	 > {{word.word}}
+
+{% endfor%}<br>
+<input type="text" name="tourID" value="{{tour.0}}"/>Это поле будет скрыто<br/>
+<input type="checkbox" name="isUpdateFinalResult" value="1"/>Пересчитывать финальный результат? (Только если игра закончилась!)<br/>
+<input type='submit' value='Сохранить'/>
+</form>
+<br>
+{%endfor%}
+
+{% endblock %}

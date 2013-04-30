@@ -1,0 +1,29 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+{%include "timeCountForWriteWords.js"%}
+
+<H3>Тема: «{{title.title}}»</H3>
+<H4> Автор темы: {{title.user.get_full_name}}</H4>
+    <form name = "temp" action="." method="post">
+        Идет тур {{tourID}} из {{task.gameID.toursNumber}}.<BR>
+        Введите слова:<BR>
+           <table>
+           	{{wordForm.as_table}}
+           </table>
+        <input type='submit' value='Сохранить'>
+    </form>
+<BR>
+
+{% if wordsLatestVersion %}
+Вы уже сохранили следующие слова: <BR>
+<BR>
+{% for word in wordsLatestVersion %}
+{{word}} <BR>
+{% endfor %}
+
+
+{% endif %}
+
+{% endblock %}

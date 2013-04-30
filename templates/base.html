@@ -1,0 +1,86 @@
+<HTML>
+
+<HEAD>
+<title> Банальности </title>
+<style type="text/css"> 
+.act{
+	/*color: blue;*/
+	background-color: #cccccc;
+	font-family: "Helvetica Neue";
+}
+.pass{
+	/*color: black;*/
+	font-family: "Helvetica Neue";
+}
+.vkdiv { 
+    /*width: 200px;
+    background: #ccc;*/
+    padding: 5px;
+    padding-top: 30px;
+    border: 0; 
+    float: right;
+	font-family: "Helvetica Neue";
+}
+  </style>
+
+		<div id="vk_api_transport"></div>
+		<script type="text/javascript">
+			window.vkAsyncInit = function() {
+				VK.init({
+					apiId: 2256946
+				});
+			};
+
+			setTimeout(function() {
+				var el = document.createElement("script");
+				el.type = "text/javascript";
+				el.src = "http://vkontakte.ru/js/api/openapi.js";
+				el.async = true;
+				document.getElementById("vk_api_transport").appendChild(el);
+			}, 0);
+		</script>
+<script type='text/javascript' src='http://userapi.com/js/api/openapi.js?ver=3.4.1'></script>
+</HEAD>
+
+<BODY alink="blue" vlink="blue">
+
+<H1 ALIGN="center">Банальности</H1>
+
+<table border="0" width="100%">
+<tr><td align="left">
+{% include "register.html"%}
+</td><td align="right" valign="top">
+Следующая игра – во вторник 30 апреля, в 23:00.<BR>
+Для участия в онлайн-обсуждении игры в скайпе стучитесь к пользователю lesha_chernov.
+</td></table>
+
+<table border="2" width="100%" cellspacing="0" bgcolor="#eeeeee" cellpadding="10">
+<tr>
+<th align="center" valign="middle" {% block act_home %}{% endblock %}><A HREF="/home/">Главная страница</A></th>
+{% if request.user.is_authenticated %}
+<th align="center" valign="middle"><A HREF="/main">Играть!</A></th>
+{% endif %}
+<th align="center" valign="middle" {% block act_rules %}{% endblock %}><A HREF="/rules/">Правила</A></th>
+{% if request.user.is_authenticated %}
+<th align="center" valign="middle" {% block act_profile %}{% endblock %}><A HREF="/profile/">Личный кабинет</A></th>
+{% endif %}
+<th align="center" valign="middle" {% block act_history %}{% endblock %}><A HREF="/history/">Результаты прошедших игр</A></th>
+</tr></table>
+
+<div class="vkdiv"><center><div id="vkapi_community-3_wrapper"></div>
+		<script type="text/javascript">
+			VK.Widgets.Group("vkapi_community-3_wrapper", {mode: 2,  height: "2"}, 45280424);
+		</script>
+</center></div>
+
+<BR/><BR/>
+
+{% block more_href %} {% endblock %}
+{% block name %} {% endblock %} 
+
+{{info}}
+
+{% block content %}{% endblock %}
+
+</BODY>
+</HTML>

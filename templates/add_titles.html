@@ -1,0 +1,16 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+<H3>Введите темы для игры.<BR> </H3>
+    <form action="." method="post">
+           <table>
+           	{{form.as_table}}
+           </table>
+        <input type='submit' value='Сохранить'>
+    </form>
+<BR>
+
+{{message}}
+
+{% endblock %}

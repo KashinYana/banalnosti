@@ -1,0 +1,118 @@
+ID процессов celery. НЕ удалять!!!
+11580
+26619
+
+Если нужно добавить картинку или музыку, нужно добавить её в папку /home/senderma/domains/ban.thehat.ru/public_html/media/ . 
+
+В html писать что-то в такой духе <img src="/media/<image-name.jpg>"/>
+
+
+
+yana@ubuntu:~$ ssh senderma@95.211.120.207
+senderma@95.211.120.207's password: 
+Last login: Mon Mar  4 22:03:39 2013 from 93.175.2.193
+[senderma@server1 ~]$ cd projects/
+[senderma@server1 projects]$ cd banalnosti/
+[senderma@server1 banalnosti]$ workon sendmail
+(sendmail)[senderma@server1 banalnosti]$ python manage.py celeryd -l info &
+[1] 26619
+(sendmail)[senderma@server1 banalnosti]$  
+ -------------- celery@server1.hosting4django.net v3.0.13 (Chiastic Slide)
+---- **** ----- 
+--- * ***  * -- [Configuration]
+-- * - **** --- . broker:      django://localhost//
+- ** ---------- . app:         default:0x2445050 (djcelery.loaders.DjangoLoader)
+- ** ---------- . concurrency: 1 (processes)
+- ** ---------- . events:      OFF (enable -E to monitor this worker)
+- ** ---------- 
+- *** --- * --- [Queues]
+-- ******* ---- . celery:      exchange:celery(direct) binding:celery
+--- ***** ----- 
+
+[Tasks]
+  . celerytest.tasks.add
+  . celerytest.tasks.task_choice_titles
+  . celerytest.tasks.task_count_final_result
+  . celerytest.tasks.task_count_result
+  . celerytest.tasks.task_count_statistics_words
+  . celerytest.tasks.task_save_words
+
+[2013-03-05 18:18:22,352: WARNING/MainProcess] /home/senderma/.virtualenvs/sendmail/lib/python2.6/site-packages/djcelery/loaders.py:132: UserWarning: Using settings.DEBUG leads to a memory leak, never use this setting in production environments!
+  warnings.warn("Using settings.DEBUG leads to a memory leak, never "
+[2013-03-05 18:18:22,353: WARNING/MainProcess] celery@server1.hosting4django.net ready.
+[2013-03-05 18:18:22,356: INFO/MainProcess] consumer: Connected to django://localhost//.
+[2013-03-05 18:18:22,884: INFO/MainProcess] child process calling self.run()
+[2013-03-05 18:22:09,052: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[ae427772-b163-48a3-8c82-2889fa3eb22b] eta:[2013-03-05 22:23:58.966088+04:00]
+[2013-03-05 18:22:09,187: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[5eaed12a-7b4c-49f6-ac5e-9dad68cf8152] eta:[2013-03-05 22:24:34.162354+04:00]
+[2013-03-05 18:22:09,280: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[e415114d-19b0-4dcc-bc8e-44c92353509b] eta:[2013-03-05 22:24:54.405371+04:00]
+[2013-03-05 18:22:09,334: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_final_result[68cf4bde-1ac4-4d92-b001-8d9601f15451] eta:[2013-03-05 22:25:13.581785+04:00]
+[2013-03-05 18:23:59,232: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[ae427772-b163-48a3-8c82-2889fa3eb22b] succeeded in 0.262151956558s: None
+[2013-03-05 18:24:34,450: WARNING/PoolWorker-1] [1L, 10L] add_players
+[2013-03-05 18:24:35,153: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[5eaed12a-7b4c-49f6-ac5e-9dad68cf8152] succeeded in 0.948472976685s: None
+[2013-03-05 18:24:54,773: INFO/MainProcess] Task celerytest.tasks.task_count_result[e415114d-19b0-4dcc-bc8e-44c92353509b] succeeded in 0.341928005219s: None
+[2013-03-05 18:25:13,878: INFO/MainProcess] Task celerytest.tasks.task_count_final_result[68cf4bde-1ac4-4d92-b001-8d9601f15451] succeeded in 0.271977186203s: None
+[2013-03-05 18:30:16,675: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[3d30e1c0-d352-43b0-9127-d698cc8a9fbd] eta:[2013-03-05 22:59:58.446293+04:00]
+[2013-03-05 18:30:16,750: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[e9b56d25-9daa-48cc-8777-f644c134df89] eta:[2013-03-05 23:03:04.608615+04:00]
+[2013-03-05 18:30:16,834: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[38713f23-dd61-4a14-86b8-d6aeab8a64db] eta:[2013-03-05 23:03:44.859763+04:00]
+[2013-03-05 18:30:16,918: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[190bd841-71b8-476d-8e63-0b09a96faba6] eta:[2013-03-05 23:05:53.003320+04:00]
+[2013-03-05 18:30:17,001: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[0455ab18-59b3-4730-8d20-7ac894f2f1ff] eta:[2013-03-05 23:08:59.162294+04:00]
+[2013-03-05 18:30:17,077: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[813c3c82-bd86-466f-ad34-d4326b5b5717] eta:[2013-03-05 23:09:39.312877+04:00]
+[2013-03-05 18:30:17,135: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[fe183356-f2c5-4c82-97f8-c42f0edf3c06] eta:[2013-03-05 23:11:48.455407+04:00]
+[2013-03-05 18:30:17,194: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[67ea8a28-2df6-4b3c-8a08-371b625a1c93] eta:[2013-03-05 23:14:54.580774+04:00]
+[2013-03-05 18:30:17,252: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[3e50ae3c-bbb3-45d8-a762-4e24e6c06a9e] eta:[2013-03-05 23:15:34.739702+04:00]
+[2013-03-05 18:30:17,310: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[aff030bd-5416-42db-bce5-a214ae65ec43] eta:[2013-03-05 23:17:43.882208+04:00]
+[2013-03-05 18:30:17,377: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[396cb21c-d9a2-481d-82c9-472f8cd0d0dd] eta:[2013-03-05 23:20:49.049251+04:00]
+[2013-03-05 18:30:17,445: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[5f0ffcb1-24df-4708-a1d3-7885a160325e] eta:[2013-03-05 23:21:29.258728+04:00]
+[2013-03-05 18:30:17,503: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[411f30cf-5006-48ac-a9d6-ab12e53614c5] eta:[2013-03-05 23:23:38.401176+04:00]
+[2013-03-05 18:30:17,553: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[fcc7a9ef-2c7a-4e94-8678-353777354ce9] eta:[2013-03-05 23:26:44.551733+04:00]
+[2013-03-05 18:30:17,637: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[c1fdf303-a48c-4313-bc8d-7e86ef1d5544] eta:[2013-03-05 23:27:24.693722+04:00]
+[2013-03-05 18:30:17,696: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[12c283ec-f6a2-49d0-adc7-c271a8a5482b] eta:[2013-03-05 23:29:33.844433+04:00]
+[2013-03-05 18:30:17,754: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[576b3052-2ad3-439d-9866-8ee48b5eda3d] eta:[2013-03-05 23:32:39.994887+04:00]
+[2013-03-05 18:30:17,813: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[c25e1116-ec6d-47f8-8755-e984c38d24d8] eta:[2013-03-05 23:33:19.137206+04:00]
+[2013-03-05 18:30:17,921: INFO/MainProcess] Got task from broker: celerytest.tasks.task_choice_titles[89ac868a-ed9b-4c44-a41c-d3dfbe83ac05] eta:[2013-03-05 23:35:28.289068+04:00]
+[2013-03-05 18:30:17,997: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_statistics_words[3130cace-f238-4793-bdf5-f40ed9d91add] eta:[2013-03-05 23:38:34.414572+04:00]
+[2013-03-05 18:30:18,064: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_result[78078cfa-35c1-4036-9bac-61773993eb3a] eta:[2013-03-05 23:39:14.632976+04:00]
+[2013-03-05 18:30:18,131: INFO/MainProcess] Got task from broker: celerytest.tasks.task_count_final_result[350bcb83-de78-400c-a826-e4b8793b3272] eta:[2013-03-05 23:41:23.875343+04:00]
+[2013-03-05 18:59:58,617: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[3d30e1c0-d352-43b0-9127-d698cc8a9fbd] succeeded in 0.133632898331s: None
+[2013-03-05 19:03:05,512: WARNING/PoolWorker-1] [1L, 130L, 132L, 133L, 134L, 135L, 136L, 137L, 10L, 139L, 45L, 110L, 109L, 53L, 79L, 117L] add_players
+[2013-03-05 19:03:05,624: WARNING/PoolWorker-1] [u'\u043b\u0435\u0433\u043a\u043e\u0441\u0442\u044c', u'\u044f\u0441\u043d\u043e\u0441\u0442\u044c', u'\u043f\u0440\u043e\u0441\u0442\u043e\u0442\u0430', u'\u043f\u043e\u043d\u044f\u0442\u043d\u043e\u0441\u0442\u044c', u'\u0431\u0430\u043d\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u0438', u'\u043a\u044d\u043f', u'\u0431\u0430\u043d\u0430\u043b\u044c\u043d\u043e\u0441\u0442\u044c', u'\u043c\u0435\u043c', u'\u0438\u043d\u0442\u0435\u0440\u043d\u0435\u0442-\u043c\u0435\u043c', u'\u043a\u0430\u043f\u0438\u0442\u0430\u043d']
+[2013-03-05 19:03:11,589: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[e9b56d25-9daa-48cc-8777-f644c134df89] succeeded in 6.9757039547s: None
+[2013-03-05 19:03:46,367: INFO/MainProcess] Task celerytest.tasks.task_count_result[38713f23-dd61-4a14-86b8-d6aeab8a64db] succeeded in 1.46447706223s: None
+[2013-03-05 19:05:53,165: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[190bd841-71b8-476d-8e63-0b09a96faba6] succeeded in 0.150814056396s: None
+[2013-03-05 19:08:59,346: WARNING/PoolWorker-1] [24L, 115L] add_players
+[2013-03-05 19:09:04,087: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[0455ab18-59b3-4730-8d20-7ac894f2f1ff] succeeded in 4.89058494568s: None
+[2013-03-05 19:09:40,925: INFO/MainProcess] Task celerytest.tasks.task_count_result[813c3c82-bd86-466f-ad34-d4326b5b5717] succeeded in 1.59122204781s: None
+[2013-03-05 19:11:48,629: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[fe183356-f2c5-4c82-97f8-c42f0edf3c06] succeeded in 0.149417877197s: None
+[2013-03-05 19:14:54,678: WARNING/PoolWorker-1] [140L] add_players
+[2013-03-05 19:14:58,705: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[67ea8a28-2df6-4b3c-8a08-371b625a1c93] succeeded in 4.11294078827s: None
+[2013-03-05 19:15:36,718: INFO/MainProcess] Task celerytest.tasks.task_count_result[3e50ae3c-bbb3-45d8-a762-4e24e6c06a9e] succeeded in 1.93867897987s: None
+[2013-03-05 19:17:44,126: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[aff030bd-5416-42db-bce5-a214ae65ec43] succeeded in 0.23502779007s: None
+[2013-03-05 19:20:49,139: WARNING/PoolWorker-1] [131L] add_players
+[2013-03-05 19:20:52,895: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[396cb21c-d9a2-481d-82c9-472f8cd0d0dd] succeeded in 3.8267250061s: None
+[2013-03-05 19:21:31,417: INFO/MainProcess] Task celerytest.tasks.task_count_result[5f0ffcb1-24df-4708-a1d3-7885a160325e] succeeded in 2.11053395271s: None
+[2013-03-05 19:23:38,541: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[411f30cf-5006-48ac-a9d6-ab12e53614c5] succeeded in 0.137559890747s: None
+[2013-03-05 19:26:44,654: WARNING/PoolWorker-1] [80L] add_players
+[2013-03-05 19:26:44,756: WARNING/PoolWorker-1] [u'\u043c\u0435\u0434\u0432\u0435\u0434\u044c', u'\u0433\u0440\u0443\u043f\u043f\u0430', u'\u0436\u0438\u0440\u0430\u0444', u'\u0437\u0430\u044f\u0446', u'\u0432\u043e\u043b\u043a', u'\u043b\u0438\u0441\u0438\u0446\u0430', u'\u0441\u043b\u043e\u043d', u'\u043a\u043b\u0435\u0442\u043a\u0430', u'\u0444\u043b\u0430\u043c\u0438\u043d\u0433\u043e', u'\u0442\u0438\u0433\u0440']
+[2013-03-05 19:26:49,989: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[fcc7a9ef-2c7a-4e94-8678-353777354ce9] succeeded in 5.41216492653s: None
+[2013-03-05 19:27:27,149: INFO/MainProcess] Task celerytest.tasks.task_count_result[c1fdf303-a48c-4313-bc8d-7e86ef1d5544] succeeded in 2.4332549572s: None
+[2013-03-05 19:29:34,053: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[12c283ec-f6a2-49d0-adc7-c271a8a5482b] succeeded in 0.194226026535s: None
+[2013-03-05 19:32:40,215: WARNING/PoolWorker-1] [141L, 29L] add_players
+[2013-03-05 19:32:45,409: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[576b3052-2ad3-439d-9866-8ee48b5eda3d] succeeded in 5.40772199631s: None
+[2013-03-05 19:33:23,718: INFO/MainProcess] Task celerytest.tasks.task_count_result[c25e1116-ec6d-47f8-8755-e984c38d24d8] succeeded in 4.57997894287s: None
+[2013-03-05 19:35:28,526: INFO/MainProcess] Task celerytest.tasks.task_choice_titles[89ac868a-ed9b-4c44-a41c-d3dfbe83ac05] succeeded in 0.192452192307s: None
+[2013-03-05 19:38:34,462: WARNING/PoolWorker-1] [] add_players
+[2013-03-05 19:38:38,293: INFO/MainProcess] Task celerytest.tasks.task_count_statistics_words[3130cace-f238-4793-bdf5-f40ed9d91add] succeeded in 3.84672403336s: None
+[2013-03-05 19:39:20,511: INFO/MainProcess] Task celerytest.tasks.task_count_result[78078cfa-35c1-4036-9bac-61773993eb3a] succeeded in 5.87700796127s: None
+[2013-03-05 19:41:25,543: INFO/MainProcess] Task celerytest.tasks.task_count_final_result[350bcb83-de78-400c-a826-e4b8793b3272] succeeded in 1.66621804237s: None
+Write failed: Broken pipe
+yana@ubuntu:~$ ssh senderma@95.211.120.207
+senderma@95.211.120.207's password: 
+Last login: Tue Mar  5 19:15:50 2013 from 93.175.2.193
+[senderma@server1 ~]$ cd projects/banalnosti/
+[senderma@server1 banalnosti]$ workon sendmail
+(sendmail)[senderma@server1 banalnosti]$ kill -9 26619
+bash: kill: (26619) - No such process
+(sendmail)[senderma@server1 banalnosti]$ exit
+logout
+Connection to 95.211.120.207 closed.
+

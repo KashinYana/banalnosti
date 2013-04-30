@@ -1,0 +1,14 @@
+{% extends "base_home.html" %}
+
+{% block name %}
+<BR>
+{{message}}<BR>
+<p style = "color:red;"> {{error_list}} </p>
+
+    <form action="/start/" method="post">
+    <input type='submit' value="Начать игру" >
+    </form>
+<BR>
+{% endblock %}
+
+

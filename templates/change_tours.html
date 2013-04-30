@@ -1,0 +1,14 @@
+{% extends "base_standings.html" %}
+
+{% block more_href %}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% for id_tour in listTours %}
+<A HREF="/tour/{{id_tour}}"  style="color:#000000"> Посмотреть статистику {{id_tour}} тура</A> <BR>
+{% endfor %}
+{% endblock %}
+

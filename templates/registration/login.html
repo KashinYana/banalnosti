@@ -1,0 +1,20 @@
+{% extends "base_profile.html" %}
+
+{% block content %}
+  <H2>Вход пользователей</H2> <BR>
+  {% if errors %}
+    <p>Сожалеем, вы неправильно ввели логин или пароль</p>
+  {% endif %}
+
+  <form action='.' method='post'>
+    <label for="username">Логин:</label>
+    <input type="text" name="username" value="" id="username">
+    <BR>
+    <label for="password">Пароль:</label>
+    <input type="password" name="password" value="" id="password">
+    <BR>
+    <input type="submit" value="Вход" />
+    <input type="hidden" name="next" value="{{ next|escape }}" />
+  </form>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+Предложите, пожалуйста, тему для тура:<BR>
+<form action="." method="post">
+	<table>
+		{{titleForm.as_table}}
+	</table>
+	<input type='submit' value='Предложить'>
+</form>
+
+<BR>
+{% if titleYour %}
+Вы предложили для игры тему «{{titleYour.title}}». <BR>
+До начала игры Вы ещё можете изменить свой выбор.<BR>
+{% endif %}
+<BR>
+
+{%include "timeCount.js"%}
+
+{% endblock %}

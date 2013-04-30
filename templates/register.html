@@ -1,0 +1,15 @@
+
+{% if request.user.is_authenticated %}
+   <form action="/logout/">
+   Добро пожаловать, {{ request.user.first_name }} {{ request.user.last_name }}!
+       <br/>
+	   <input type="submit" value="Выйти">
+   </form>
+{% else %}
+   <form action="/login/">
+       <input type="submit" value="Войти">
+   </form>
+   <form action="/register/">
+       <input type="submit" value="Зарегистрироваться">
+   </form>
+{% endif %}

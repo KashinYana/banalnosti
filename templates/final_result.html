@@ -1,0 +1,25 @@
+{% extends "base_home.html" %}
+
+{% block more_href %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+Игра закончилась.<BR>
+Результаты:<BR>
+<TABLE border>
+<TR>
+<TH>Имя игрока</TH><TH>Очки за игру</TH>
+</TR>
+{% for player in players %}
+<TR>
+<TD> {{player.user.get_full_name}}  </TD> 
+<TD> {{player.score}} </TD>
+</TR>
+{% endfor %}
+</TABLE>
+
+{% endblock %}

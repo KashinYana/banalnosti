@@ -1,0 +1,13 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+Ваши слова приняты. Подождем остальных участников...<BR>
+Сохраненные слова:<BR>
+
+{%for word in input_words%}
+  {{word.word}} <BR>
+{% endfor %}
+
+{%include "timeCount.js"%}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base_home.html" %}
+
+{% block name %}
+<BR>
+
+<p style = "color:red;"> {{error_list}} </p>
+
+    <form action="/start/" method="post">
+    <input type='submit' value="Войти в игру" >
+    </form>
+<BR>
+{% endblock %}
+
+{% block content %}
+
+{%include "timeCount.js"%}
+
+{% endblock %}
+

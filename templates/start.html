@@ -1,0 +1,35 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+<style type="text/css">
+.clear{
+color: blue;
+}
+</style>
+
+{%include "timeCount.js"%}
+Вы можете предложить тему для тура:<BR>
+
+<form action="." method="post">
+	<table>
+		{{formTitle.as_table}}
+	</table>
+	<input type='submit' value='Предложить'>
+</form>
+
+<BR>
+{% if isTitle %}
+<span class = "clear">Вы предложили для игры тему:</span> {{isTitle}}.<BR>
+До начала игры Вы ещё можете изменить свой выбор.<BR>
+{% endif %}
+<BR>
+<BR>
+<p class = "clear">Список зарегистрированных участников на данный момент: </p> <BR>
+{% for people in  namePlayers %}
+{{people}}<BR>
+{% endfor%}
+
+
+
+{% endblock %}

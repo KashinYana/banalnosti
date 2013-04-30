@@ -1,0 +1,42 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+{%include "timeCount.js"%}
+
+Отметьте галочками слова, которые, на ваш взгляд, не удовлетворяют правилам:<BR>
+<form name = "check" action="." method="post">
+    <TABLE>
+    <TR>
+    <TH>Слово</TH>
+    <TH>Популярность</TH>
+	</TR>
+    {%for word in words %}
+       <TR>
+    	
+    	<TD>
+    	 <input type="checkbox" name="word" value="{{word.word}}" 
+         {% if not word.legal %}
+         checked
+         {% endif %}
+    	 > {{word.word}} <BR>
+        </TD>
+
+        <TD>
+         {% if not word.legal %}
+         <s>
+         {% endif %}
+          {{word.count}}
+         {% if not word.legal %}
+         </s>
+         {% endif %}
+         </TD>
+
+    	</TR> 
+    {%endfor%}
+    </TABLE>
+    <input type='submit' value='Сохранить'>
+</form>
+
+
+{% endblock %}

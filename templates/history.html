@@ -1,0 +1,261 @@
+{% extends "base_history.html" %}
+
+{% block content %}
+
+<style type="text/css">
+.table_after_game {
+	font-weight: 80%;
+	font: left;
+}
+table{
+	border-collapse: collapse;
+}
+td{
+	padding: 5px;
+}
+
+</style>
+
+{% for game in statisticsGameAll %}
+
+<div class="table_after_game">
+	<TABLE BORDER>
+		<caption> Результаты игры {{game.0.start.date}} </caption>
+	<TR>
+	<TH> Имя игрока </TH> 
+	{% for tourID_Title in game.3%}
+	<TH>  <A HREF="/history/{{game.0.id}}/{{tourID_Title.0}}"  style="color:#000000" title = "{{tourID_Title.1}}" > {{tourID_Title.0}} </A> </TH>
+	{% endfor %}
+	<TH>  Очки за игру </TH>
+	</TR>
+
+	{% for player in game.2 %}
+	<TD> {{player.0.user.get_full_name}} </TD> 
+
+	{% for scoreTour in player.1 %}
+	<TD>  
+	{% if scoreTour.1%}
+	<b>
+	{%endif%}
+	{{scoreTour.0}} 
+	{% if scoreTour.1%}
+	</b>
+	{%endif%}
+	</TD>
+	{% endfor %}
+
+	<TD> {{player.0.score}} </TD> 
+	</TR>
+	{% endfor %}
+	</TABLE>
+</div>
+
+<BR>
+<BR>
+
+{% endfor %}
+
+
+Результаты игры 11 декабря 2012:<BR>
+Результаты:<BR>
+<TABLE BORDER>
+<TR>
+<TD> Имя игрока </TD> <TD>  Очки за игру </TD>
+</TR>
+<TR> <TD> Lewis C  </TD> <TD> 219 </TD></TR>
+<TR> <TD> Женя Е  </TD> <TD> 214 </TD></TR>
+<TR> <TD> Rada Null  </TD> <TD> 208 </TD></TR>
+<TR> <TD> Михаил Тихомиров  </TD> <TD> 181 </TD></TR>
+<TR> <TD> Яша Летучий  </TD> <TD> 165 </TD></TR>
+<TR> <TD> Лёша Чернов  </TD> <TD> 160 </TD></TR>
+<TR> <TD> Илья Дриго  </TD> <TD> 144 </TD></TR>
+<TR> <TD> vodoleus vodoleus  </TD> <TD> 142 </TD></TR>
+<TR> <TD> Maria Servalli  </TD> <TD> 137 </TD></TR>
+<TR> <TD> Волк Разумный  </TD> <TD> 132 </TD></TR>
+<TR> <TD> Саша Чеботарев  </TD> <TD> 131 </TD></TR>
+<TR> <TD> Strashila Mudry  </TD> <TD> 130 </TD></TR>
+<TR> <TD> Даша Городецкая  </TD> <TD> 128 </TD></TR>
+<TR> <TD> Ruslan 05  </TD> <TD> 70 </TD></TR>
+<TR> <TD> Яна Кашинская  </TD> <TD> 60 </TD></TR>
+<TR> <TD> Елизавета Левина  </TD> <TD> 23 </TD></TR>
+</TABLE>
+
+
+Результаты игры 4 декабря 2012:<BR>
+<BR>
+<TABLE BORDER>
+<TR>
+<TD> Имя игрока </TD> <TD>  Очки за игру </TD>
+</TR>
+<TR> <TD> Фёдор Михайлович  </TD> <TD> 275 </TD></TR>
+<TR> <TD> Волк Разумный  </TD> <TD> 250 </TD></TR>
+<TR> <TD> Лена Пена  </TD> <TD> 243 </TD></TR>
+<TR> <TD> Марина Линдина  </TD> <TD> 242 </TD></TR>
+<TR> <TD> Саша Чеботарев  </TD> <TD> 239 </TD></TR>
+<TR> <TD> Алексей Елагин  </TD> <TD> 226 </TD></TR>
+<TR> <TD> Матвейка со Спасоналивок  </TD> <TD> 221 </TD></TR>
+<TR> <TD> Лёша Чернов  </TD> <TD> 219 </TD></TR>
+<TR> <TD> kqwr kqwr  </TD> <TD> 208 </TD></TR>
+<TR> <TD> Ruslan 05  </TD> <TD> 201 </TD></TR>
+<TR> <TD> Александра Иглина  </TD> <TD> 198 </TD></TR>
+<TR> <TD> Fedya Nefedya  </TD> <TD> 196 </TD></TR>
+<TR> <TD> Митя Адамский  </TD> <TD> 184 </TD></TR>
+<TR> <TD> Валерыч    </TD> <TD> 168 </TD></TR>
+<TR> <TD> Илья Дриго  </TD> <TD> 164 </TD></TR>
+<TR> <TD> Dasha Gorodetskaya  </TD> <TD> 160 </TD></TR>
+<TR> <TD> Митя Матвеевский  </TD> <TD> 160 </TD></TR>
+<TR> <TD> Анастасия Мельник  </TD> <TD> 144 </TD></TR>
+<TR> <TD> Яна Кашинская  </TD> <TD> 130 </TD></TR>
+<TR> <TD> Маша Аксёнова  </TD> <TD> 96 </TD></TR>
+</TABLE>
+
+
+Результаты игры 27 ноября 2012: <BR>
+<BR>
+<TABLE BORDER>
+<TR>
+<TD> Имя игрока </TD> <TD>  Очки за игру </TD>
+</TR>
+<TR> <TD> Даня Поспелов  </TD> <TD> 615 </TD></TR>
+<TR> <TD> Алексей Елагин  </TD> <TD> 570 </TD></TR>
+<TR> <TD> Крокодило Бегемоты  </TD> <TD> 553 </TD></TR>
+<TR> <TD> Александр Тимин  </TD> <TD> 538 </TD></TR>
+<TR> <TD> Коля Фролов  </TD> <TD> 524 </TD></TR>
+<TR> <TD> Фёдор Михайлович  </TD> <TD> 524 </TD></TR>
+<TR> <TD> Яна Кашинская  </TD> <TD> 510 </TD></TR>
+<TR> <TD> Валерыч    </TD> <TD> 495 </TD></TR>
+<TR> <TD> Виталий Павленко  </TD> <TD> 494 </TD></TR>
+<TR> <TD> Лёша Чернов  </TD> <TD> 487 </TD></TR>
+<TR> <TD> Марина Линдина  </TD> <TD> 471 </TD></TR>
+<TR> <TD> Даниил Удимов  </TD> <TD> 465 </TD></TR>
+<TR> <TD> Страшила Мудрый  </TD> <TD> 450 </TD></TR>
+<TR> <TD> Яша Летучий  </TD> <TD> 443 </TD></TR>
+<TR> <TD> Руслан 05  </TD> <TD> 436 </TD></TR>
+<TR> <TD> Саша Леонтьева  </TD> <TD> 429 </TD></TR>
+<TR> <TD> Волк Разумный  </TD> <TD> 407 </TD></TR>
+<TR> <TD> Анастасия Мельник  </TD> <TD> 401 </TD></TR>
+<TR> <TD> kqwr kqwr  </TD> <TD> 399 </TD></TR>
+<TR> <TD> Михаил Тихомиров  </TD> <TD> 393 </TD></TR>
+<TR> <TD> Маша Аксёнова  </TD> <TD> 389 </TD></TR>
+<TR> <TD> Дмитрий Матвеевский  </TD> <TD> 285 </TD></TR>
+<TR> <TD> Sam Smith  </TD> <TD> 256 </TD></TR>
+<TR> <TD> Silly Billy  </TD> <TD> 181 </TD></TR>
+<TR> <TD> Nikita Starichkov  </TD> <TD> 179 </TD></TR>
+</TABLE>
+<BR>
+
+Результаты игры 20 ноября 2012: <BR>
+
+<TABLE BORDER>
+<TR>
+<TD> Имя игрока </TD> <TD>  Очки за игру </TD>
+</TR>
+<TR>
+<TD> Алексей Елагин  </TD> 
+<TD> 157 </TD>
+</TR>
+<TR>
+<TD> Аня  Овчаренко  </TD> 
+<TD> 151 </TD>
+</TR>
+<TR>
+<TD> Фёдор Михайлович  </TD> 
+<TD> 148 </TD>
+</TR>
+<TR>
+<TD> Руслан 05  </TD> 
+<TD> 108 </TD>
+</TR>
+<TR>
+<TD> Валерыч    </TD> 
+<TD> 105 </TD>
+</TR>
+<TR>
+<TD> Крокодило Бегемоты  </TD> 
+<TD> 101 </TD>
+</TR>
+<TR>
+<TD> Пропуск Пропуск  </TD> 
+<TD> 96 </TD>
+</TR>
+<TR>
+<TD> Яна Кашинская  </TD> 
+<TD> 95 </TD>
+</TR>
+<TR>
+<TD> Егор Сечкин  </TD> 
+<TD> 84 </TD>
+</TR>
+<TR>
+<TD> Lewis C  </TD> 
+<TD> 76 </TD>
+</TR>
+<TR>
+<TD> Лёша Чернов  </TD> 
+<TD> 50 </TD>
+</TR>
+<TR>
+<TD> Sam Smith  </TD> 
+<TD> 37 </TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+
+Результаты игры 12 ноября 2012:<BR>
+<TABLE BORDER>
+<TR>
+<TD> Имя игрока </TD> <TD>  Очки за игру </TD>
+</TR>
+<TR>
+<TD> Алексей Елагин  </TD> 
+<TD> 124 </TD>
+</TR>
+<TR>
+<TD> Даня Поспелов  </TD> 
+<TD> 123 </TD>
+</TR>
+<TR>
+<TD> Аня  Овчаренко  </TD> 
+<TD> 117 </TD>
+</TR>
+<TR>
+<TD> Александр Блинов  </TD> 
+<TD> 103 </TD>
+</TR>
+<TR>
+<TD> Коля Фролов  </TD> 
+<TD> 103 </TD>
+</TR>
+<TR>
+<TD> Лёша Чернов  </TD> 
+<TD> 98 </TD>
+</TR>
+<TR>
+<TD> Иван Тельпуховский  </TD> 
+<TD> 88 </TD>
+</TR>
+<TR>
+<TD> Катя    </TD> 
+<TD> 86 </TD>
+</TR>
+<TR>
+<TD> Дима Миронов  </TD> 
+<TD> 70 </TD>
+</TR>
+<TR>
+<TD> KirmAndiR    </TD> 
+<TD> 47 </TD>
+</TR>
+<TR>
+<TD> Яна Кашинская  </TD> 
+<TD> 28 </TD>
+</TR>
+<TR>
+<TD> Полина Елагина  </TD> 
+<TD> 16 </TD>
+</TR>
+</TABLE>
+
+{% endblock %}

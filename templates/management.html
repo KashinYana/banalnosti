@@ -1,0 +1,30 @@
+{% extends "base_home.html" %}
+
+{% block content %}
+
+<p>Здесь вы можете создать новую игру:</p>
+
+<form action = "/create/" method="post">
+   <table>
+	  {{createForm.as_table}}
+   </table>
+<input type='submit' value='Создать игру'>
+</form>
+
+Здесь вы можете изменить созданную игру:<BR>
+<BR>
+
+{%for game in gameAll%}
+{{game.start.ctime}} 
+<form action="/change_game/{{game.id}}/" method = "post"><input type='submit' value='Удалить (После игры! Осторожно!)'> 
+</form>
+<form action="/add_titles/{{game.id}}/" method = "post"> <input type = 'submit' value = 'Новые темы администратора'> 
+</form>
+<form action="/rejudge/{{game.id}}/" method = "post"> <input type = 'submit' value = 'Пересудить'> 
+</form>
+<form action="/ban/{{game.id}}/" method = "post"> <input type = 'submit' value = 'Изменить баны'> 
+</form>
+
+{% endfor%}
+
+{% endblock %}
