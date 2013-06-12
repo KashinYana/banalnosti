@@ -6,25 +6,37 @@
 
 {% block content %}
 
-<!-- Жмите сюда: <A HREF="/main">Играть!</A>
-Следующая игра пройдёт во вторник 19 марта в 23:00. -->
-<br/>
-Если скоро будет игра, жмите сюда: <A HREF="/main">Играть!</A>
-Если вы здесь первый раз, можете пока <a href="http://ban.thehat.ru/register">зарегистрироваться</a>
-и изучить <a href="http://ban.thehat.ru/rules/">правила игры</a>.
-
-{% if standings %}
-Игра закончилась.<BR>
-Результаты:<BR>
-<TABLE BORDER>
-<TR>
-<TH>Имя игрока</TH><TH>Очки за игру</TH>
-</TR>
-{% for player in standings %}
-<TR> <TD> {{player.0}}  </TD> <TD> {{player.1}} </TD></TR>
-{% endfor %}
-</TABLE>
-
-{% endif %}
+<h2 class="title" align="center">Июньский турнир по игре «Банальности»</h2>
+<div class="entry">
+	<p></p>
+	<p>Состоит из четырёх игр в четыре вторника июня.</p>
+	<p>Оставшиеся три игры пройдут 11, 18 и 25 июня; начало игр – в 23:00 по московскому времени.</p>
+	<p>По итогам каждой игры очки получают 20 лучших игроков: победитель – 20 очков, второе место – 19 очков, и так далее, 20-е место – одно очко.</p>
+	<p>Если несколько игроков набрали поровну очков и делят, например, третье место, то все они получают по 18 очков.</p>
+	<p>Лидеры после первой игры:</p>
+	<center><table width="50%" border>
+		<tr><th>Имя игрока</th><th>Очки</th></tr>
+		<tr><td>Крокодило Бегемоты</td><td align='center'>20</td></tr>
+		<tr><td>Владимир Мазлов</td><td align='center'>19</td></tr>
+		<tr><td>Николай Першаков</td><td align='center'>18</td></tr>
+		<tr><td>Илья Кайсин</td><td align='center'>17</td></tr>
+		<tr><td>Владимир Мосяйкин</td><td align='center'>16</td></tr>
+		<tr><td>Даня Поспелов</td><td align='center'>16</td></tr>
+		<tr><td>Светлана Сахарова</td><td align='center'>14</td></tr>
+		<tr><td>Алексей Гордеев</td><td align='center'>14</td></tr>
+		<tr><td>Аня Овчаренко</td><td align='center'>12</td></tr>
+		<tr><td>Лёша Чернов</td><td align='center'>11</td></tr>
+		<tr><td>Валерыч</td><td align='center'>10</td></tr>
+		<tr><td>Яша Летучий</td><td align='center'>9</td></tr>
+		<tr><td>Николай Будин</td><td align='center'>8</td></tr>
+		<tr><td>Lena Pena</td><td align='center'>7</td></tr>
+		<tr><td>Се Ло</td><td align='center'>6</td></tr>
+		<tr><td>Ксюша Бычкова</td><td align='center'>5</td></tr>
+		<tr><td>Яна Кашинская</td><td align='center'>4</td></tr>
+		<tr><td>Василий Буфеев</td><td align='center'>3</td></tr>
+		<tr><td>Илья Гимон</td><td align='center'>2</td></tr>
+		<tr><td>Илья Лаут</td><td align='center'>1</td></tr>
+	</table></center>
+</div>
 
 {% endblock %}

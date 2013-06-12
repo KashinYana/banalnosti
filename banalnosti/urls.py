@@ -6,7 +6,7 @@ from users import register, login, logout, profile
 
 from game_views import main
 from manage_views import management, create, change_game, add_titles, rejudge, ban
-from history_views import history, history_tour, test
+from history_views import history, history_tour, test, results_very_old
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -29,21 +29,28 @@ urlpatterns = patterns('',
                  {'document_root': settings.MEDIA_ROOT}),
 
     url(r'^admin/', include(admin.site.urls)),
+	
+	# User global pages
     url(r'^home/$', home),
     url(r'^$', home),
     url(r'^start/$', start),
-    url(r'^write.words/$', write_words),
-    url(r'^send.words/$', send_words),
-    url(r'^results/$', results),
     url(r'^register/$', register),
     url(r'^login/$', login),
     url(r'^logout/$', logout),
-    url(r'^standings/$', standings),
-    url(r'^tour/(\d{1,2})$', standings_tour),
     url(r'^profile/$', profile),
     url(r'^rules/$', rules),
     url(r'^history/$', history),
+	url(r'^results_very_old/$', results_very_old),
+	
+	# User pages during game
+    url(r'^write.words/$', write_words),
+    url(r'^send.words/$', send_words),
+    url(r'^results/$', results),
+    url(r'^standings/$', standings),
+    url(r'^tour/(\d{1,2})$', standings_tour),
     url(r'^history/(\d{1,600})/(\d{1,600})/$', history_tour),
+
+	# Admin pages
     url(r'^recount/$', recount),
     url(r'^lock/$', lock),
     url(r'^management/$', management),

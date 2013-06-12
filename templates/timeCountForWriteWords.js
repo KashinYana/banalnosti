@@ -30,8 +30,8 @@
 
 <script LANGUAGE="JavaScript">
 <!--/ Начало скрипта
-		//var beep1 = new Audio("/media/beep-1.mp3");
-		//var beep2 = new Audio("/media/beep-2.mp3");
+		var beep1 = new Audio("/media/beep-1.ogg");
+		var beep2 = new Audio("/media/beep-2.ogg");
         
         var start=new Date();
         start = Date.parse(start)/1000;
@@ -41,12 +41,12 @@
                 now = Date.parse(now) / 1000;
                 var x = parseInt(now - start, 10);
                 document.getElementById("timerid").innerHTML = counts - x;
-				//if ((counts - x) == 30) {
-                //    beep2.play(); 
-               // }
-				//if ((counts - x) == 5) {
-                //    beep1.play(); 
-                //}
+				if ((counts - x) == 30) {
+                    beep2.play(); 
+                }
+				if ((counts - x) == 5) {
+                    beep1.play(); 
+                }
                 //if ((counts - x) == 5){
                 //        if (document.temp) {
                 //            document.temp.submit();

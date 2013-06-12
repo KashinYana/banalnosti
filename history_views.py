@@ -45,6 +45,9 @@ def titles_game(dataGame):
     titles = Titles.objects.filter(gameID = dataGame, tourID__gte = 0).order_by('tourID')
     return map(lambda x: x.title, titles)
 
+def results_very_old(request):
+    return render_to_response('results_very_old.html', locals(), context_instance=RequestContext(request))
+
 def history(request):
     currentTimeStart = datetime.datetime.today()
     
@@ -65,6 +68,11 @@ def history_tour(request, gameID, tourID):
     title = Titles.objects.get(gameID = gameID, tourID = tourID)
     messageForTitle = u"Результаты тура " + str(tourID + 1) + u" из " + str(gameID.toursNumber) + ".\n"
     messageForTitle += u"Тема тура была " + title.title + u" от автора " + title.user.get_full_name() + "."
+    tourIDHTML = str(tourID + 1)
+    toursNumberHTML = str(gameID.toursNumber)
+    titleHTML = title.title
+    autorHTML = title.user.get_full_name()
+
     playersScore = ResultTours.objects.filter(gameID = gameID, tourID = tourID).order_by('-score')
     playersScoreTotal = ResultTours.objects.filter(gameID = gameID, tourID = tourID).order_by('-scoreTotal')
     statisticsWords = StatisticsWords.objects.filter(gameID = gameID, tourID = tourID).order_by('-count')

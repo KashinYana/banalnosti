@@ -16,48 +16,9 @@ td{
 
 </style>
 
-{% for game in statisticsGameAll %}
+<h2 class="title" align="center">Результаты очень старых игр</h2>
 
-<div class="table_after_game">
-	<TABLE BORDER>
-		<caption> Результаты игры {{game.0.start.date}} </caption>
-	<TR>
-	<TH> Имя игрока </TH> 
-	{% for tourID_Title in game.3%}
-	<TH>  <A HREF="/history/{{game.0.id}}/{{tourID_Title.0}}"  style="color:#000000" title = "{{tourID_Title.1}}" > {{tourID_Title.0}} </A> </TH>
-	{% endfor %}
-	<TH>  Очки за игру </TH>
-	</TR>
-
-	{% for player in game.2 %}
-	<TD> {{player.0.user.get_full_name}} </TD> 
-
-	{% for scoreTour in player.1 %}
-	<TD>  
-	{% if scoreTour.1%}
-	<b>
-	{%endif%}
-	{{scoreTour.0}} 
-	{% if scoreTour.1%}
-	</b>
-	{%endif%}
-	</TD>
-	{% endfor %}
-
-	<TD> {{player.0.score}} </TD> 
-	</TR>
-	{% endfor %}
-	</TABLE>
-</div>
-
-<BR>
-<BR>
-
-{% endfor %}
-
-
-Результаты игры 11 декабря 2012:<BR>
-Результаты:<BR>
+<h3>Игра 11 декабря 2012:</h3>
 <TABLE BORDER>
 <TR>
 <TD> Имя игрока </TD> <TD>  Очки за игру </TD>
@@ -81,8 +42,7 @@ td{
 </TABLE>
 
 
-Результаты игры 4 декабря 2012:<BR>
-<BR>
+<h3>Игра 4 декабря 2012:</h3>
 <TABLE BORDER>
 <TR>
 <TD> Имя игрока </TD> <TD>  Очки за игру </TD>

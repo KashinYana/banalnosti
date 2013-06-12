@@ -1,15 +1,18 @@
 
 {% if request.user.is_authenticated %}
-   <form action="/logout/">
+<!--   <form action="/logout/">
    Добро пожаловать, {{ request.user.first_name }} {{ request.user.last_name }}!
        <br/>
 	   <input type="submit" value="Выйти">
-   </form>
+   </form> -->
 {% else %}
-   <form action="/login/">
-       <input type="submit" value="Войти">
-   </form>
-   <form action="/register/">
-       <input type="submit" value="Зарегистрироваться">
-   </form>
+   <form action='/login/' method='post'>
+    <input type="text" name="username" value="Логин" id="username"
+		onblur="if (this.value=='') this.value='Логин';" onfocus="if (this.value=='Логин') this.value='';">
+    <BR>
+    <input type="password" name="password" value="" id="password">
+    <BR>
+    <input type="submit" value="Войти" />
+    <input type="hidden" name="next" value="" />
+  </form>
 {% endif %}

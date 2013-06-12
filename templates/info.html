@@ -17,6 +17,14 @@
 {% endif %}
 <BR>
 
+{% if peoplesInputTitles %}
+
+	Темы для игры уже предложили: <BR />
+	{% for people in peoplesInputTitles%}
+	{{people.get_full_name}} <br />
+	{% endfor %}
+{% endif %}
+
 {%include "timeCount.js"%}
 
 {% endblock %}

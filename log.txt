@@ -1,0 +1,13 @@
+[1;36m 
+ -------------- celery@server1.hosting4django.net v3.0.15 (Chiastic Slide)
+---- **** ----- 
+--- * ***  * -- [Configuration]
+-- * - **** --- . broker:      amqp://sendermail@127.0.0.1:5672/sendermail
+- ** ---------- . app:         default:0x1bebbd0 (djcelery.loaders.DjangoLoader)
+- ** ---------- . concurrency: 1 (processes)
+- ** ---------- . events:      OFF (enable -E to monitor this worker)
+- ** ---------- 
+- *** --- * --- [Queues]
+-- ******* ---- . celery:      exchange:celery(direct) binding:celery
+--- ***** ----- 
+[0m[0m[0m

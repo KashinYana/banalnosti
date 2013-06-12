@@ -31,7 +31,7 @@ div.wrapper{
 	margin: 2%;
 	float: left;
 	width: 300px;
-	height: 300px; 
+	/*height: 300px; */
 }
 
 table#score_last_tour, table#score_all_tours, table#statistics_words{
@@ -55,7 +55,8 @@ table#score_last_tour, table#score_all_tours, table#statistics_words{
 {% endif %}
 
 <BR>
-<H3 ALIGN="center" > {{messageForTitle}} </H3>
+<H3 ALIGN="center">Результаты тура {{tourIDHTML}} из {{toursNumberHTML}}</H3>
+<H4><center>Тема тура: «{{titleHTML}}» (автор: {{autorHTML}})</center></H4>
 <TABLE BORDER id = "score_last_tour">
 <TR>
 <TH><p class = "clear"> Имя игрока </p> </TH> <TH> <p class = "clear"> Баллы за последний тур </p></TH> 

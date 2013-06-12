@@ -4,26 +4,51 @@
 
 {%include "timeCountForWriteWords.js"%}
 
+Играем тур № {{tourID}} из {{task.gameID.toursNumber}}.<BR>
 <H3>Тема: «{{title.title}}»</H3>
 <H4> Автор темы: {{title.user.get_full_name}}</H4>
     <form name = "temp" action="." method="post">
-        Идет тур {{tourID}} из {{task.gameID.toursNumber}}.<BR>
         Введите слова:<BR>
-           <table>
-           	{{wordForm.as_table}}
-           </table>
-        <input type='submit' value='Сохранить'>
+        <table border="0" width="75%">
+		<tr>
+			<td align="right">1</td><td><input type="text" name="word1" tabindex="1" value="{{wordForm.word1.data|default:''}}"/></td>
+			<td align="right">6</td><td><input type="text" name="word6" tabindex="6" value="{{wordForm.word6.data|default:''}}"/></td>
+			<td rowspan="6" valign="top">
+{% if wordsLatestVersion %}
+Вы уже сохранили следующие слова:
+{% for word in wordsLatestVersion %}
+<BR>{{word}}
+{% endfor %}
+
+{% else %}
+<script language="javascript">beep2.play();</script>
+{% endif %}
+			</td>
+		</tr>
+		<tr>
+			<td align="right">2</td><td><input type="text" name="word2" tabindex="2" value="{{wordForm.word2.data|default:''}}"/></td>
+			<td align="right">7</td><td><input type="text" name="word7" tabindex="7" value="{{wordForm.word7.data|default:''}}"/></td>
+		</tr>
+		<tr>
+			<td align="right">3</td><td><input type="text" name="word3" tabindex="3" value="{{wordForm.word3.data|default:''}}"/></td>
+			<td align="right">8</td><td><input type="text" name="word8" tabindex="8" value="{{wordForm.word8.data|default:''}}"/></td>
+		</tr>
+		<tr>
+			<td align="right">4</td><td><input type="text" name="word4" tabindex="4" value="{{wordForm.word4.data|default:''}}"/></td>
+			<td align="right">9</td><td><input type="text" name="word9" tabindex="9" value="{{wordForm.word9.data|default:''}}"/></td>
+		</tr>
+		<tr>
+			<td align="right">5</td><td><input type="text" name="word5" tabindex="5" value="{{wordForm.word5.data|default:''}}"/></td>
+			<td align="right">10</td><td><input type="text" name="word10" tabindex="10" value="{{wordForm.word10.data|default:''}}"/></td>
+		</tr>
+		<tr>
+			<td align="right"></td><td></td>
+			<td align="right"></td><td></td>
+		</tr>
+        </table>
+        <input tabindex="11" type='submit' value='Сохранить'>
     </form>
 <BR>
 
-{% if wordsLatestVersion %}
-Вы уже сохранили следующие слова: <BR>
-<BR>
-{% for word in wordsLatestVersion %}
-{{word}} <BR>
-{% endfor %}
-
-
-{% endif %}
 
 {% endblock %}
